@@ -1,0 +1,26 @@
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Capital</th>
+        <th scope="col">Bandera</th>
+        <th scope="col">País</th>
+        <th scope="col">Población</th>
+        <th scope="col">Ver más..</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pais of paises; let i = index">
+        <td>{{i + 1}}</td>
+        <td>{{pais.capital}}</td>
+        <td><img [ngStyle]="{'width':'150px'}" [src]="pais.flags.png" [alt]="pais.name.common"></td>
+        <td>{{pais.name.common}}</td>
+        <td>{{pais.population | number}}</td>
+        <td>
+            <a [routerLink]="['/pais', pais.cca2]">Ver..</a>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
