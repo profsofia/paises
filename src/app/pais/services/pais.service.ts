@@ -7,12 +7,12 @@ import { Pais } from '../interfaces/pais.interface';
   providedIn: 'root'
 })
 export class PaisService {
-  private apiUrl: string ='https://restcountries.com/v3.1';
+  private apiUrl: string ='https://restcountries.com/v2/name';
 
   constructor(private httpPais : HttpClient) { }
 
   buscarPais(termino: string): Observable<Pais[]>{
-    const url =`${this.apiUrl}/name/${termino}`
+    const url =`${this.apiUrl}/${termino}`
     return this.httpPais.get<Pais[]>(url);
   }
 }
