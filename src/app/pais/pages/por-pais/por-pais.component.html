@@ -3,9 +3,28 @@
         <app-pais-input
         (onEnter)="buscar($event)"
         (onDebouncer)="sugerencias($event)"
+        [placeHolder]="porpais"
         ></app-pais-input>
     </div>
 </div>
+<ul class="list-group" *ngIf="buscarSugerido">
+    <li
+    *ngFor="let pais of paisesSugeridos"
+    class="list-group-item list-group-item-action">
+        <a
+        class="nav-link"
+        [routerLink]="['/pais', pais.alpha2Code]"
+        >{{pais.name}}</a>
+    </li>
+    <li
+
+    class="list-group-item list-group-item-action">
+        <a
+        (click)="buscarSugerido(termino)"
+        class="nav-link"
+        >Buscar "{{termino}}"</a>
+    </li>
+</ul>
 <div
 *ngIf="hayError"
 class="alert alert-danger">

@@ -10,6 +10,7 @@ export class PorCapitalComponent {
   termino : string ="";
   hayError: boolean =false;
   capitales : Pais[] =[];
+  porcapital : string ="Por Capital";
   constructor(private capitalService: CapitalService){}
 
   buscar(termino: string ){
