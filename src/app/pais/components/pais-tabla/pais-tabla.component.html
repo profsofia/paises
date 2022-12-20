@@ -1,26 +1,15 @@
-<table class="table table-dark">
-    <thead>
-      <tr>
-        <th scope="col">id</th>
-        <th scope="col">Capital</th>
-        <th scope="col">Bandera</th>
-        <th scope="col">País</th>
-        <th scope="col">Población</th>
-        <th scope="col">Ver más..</th>
 
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let pais of paises; let i = index">
-        <td>{{i + 1}}</td>
-        <td>{{pais.capital}}</td>
-        <td><img [ngStyle]="{'width':'150px'}" [src]="pais.flags.png" [alt]="pais.name"></td>
-        <td>{{pais.capital}},{{pais.name}}</td>
-        <td>{{pais.population | number}}</td>
-        <td>
-            <a [routerLink]="['/pais', pais.alpha3Code]">Ver..</a>
-        </td>
-      </tr>
-
-    </tbody>
-  </table>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col" *ngFor="let pais of paises; let i = index">
+    <div class="card text-white bg-dark h-100">
+      <img class="card-img-top"  [src]="pais.flags.png" [alt]="pais.name">
+      <div class="card-body">
+        <h5 class="card-title">{{pais.name}}</h5>
+        <p class="card-text">{{pais.capital}}</p>
+        <small>Habitantes: {{pais.population | number}}</small>
+        <hr>
+        <a [routerLink]="['/pais', pais.alpha3Code]" class="btn btn-primary">Ver más</a>
+      </div>
+    </div>
+  </div>
+</div>
